@@ -6,21 +6,22 @@
     <p>{{ (olympics$ | async)?.length }} data loaded</p>
   </div>
   <div #chartContainer class="chart-container">
-    <ngx-charts-pie-chart
+    <ngx-charts-line-chart
       [view]="view"
       [scheme]="colorScheme"
-      [results]="single$ | async"
-      [gradient]="gradient"
-      [legend]="showLegend"
-      [legendPosition]="legendPosition"
-      [labels]="showLabels"
-      [doughnut]="isDoughnut"
+      [legend]="legend"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      [xAxis]="xAxis"
+      [yAxis]="yAxis"
+      [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel"
+      [timeline]="timeline"
+      [results]="multi"
       (select)="onSelect($event)"
       (activate)="onActivate($event)"
       (deactivate)="onDeactivate($event)"
-      [tooltipText]="tooltipText"
-      [maxLabelLength]="maxLabelLength"
       >
-    </ngx-charts-pie-chart>
+    </ngx-charts-line-chart>
   </div>  
 </div>
