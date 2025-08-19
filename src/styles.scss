@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+body .ngx-charts-tooltip-content .tooltip-content {
+    font-size: 18px !important;
+}
+
+.ngx-charts text {
+    font-size: 18px;
+}
