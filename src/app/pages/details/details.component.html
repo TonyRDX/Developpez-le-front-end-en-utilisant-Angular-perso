@@ -1,9 +1,11 @@
 
 <div class="container">
   <div class="header-container">
+    <!-- media queries sur les cards -->
     <h2>Olympic games app</h2>
     <hr />
     <p>{{ (olympics$ | async)?.length }} data loaded</p>
+    <p>{{ [multi$ | async] | json }}</p>
   </div>
   <div #chartContainer class="chart-container">
     <ngx-charts-line-chart
@@ -17,10 +19,7 @@
       [xAxisLabel]="xAxisLabel"
       [yAxisLabel]="yAxisLabel"
       [timeline]="timeline"
-      [results]="multi"
-      (select)="onSelect($event)"
-      (activate)="onActivate($event)"
-      (deactivate)="onDeactivate($event)"
+      [results]="[multi$ | async]"
       >
     </ngx-charts-line-chart>
   </div>  
