@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { LegendPosition } from '@swimlane/ngx-charts';
+import { LegendPosition, PieData } from '@swimlane/ngx-charts';
 
 import { OlympicService } from 'src/app/core/services/olympic.service';
 import type { Olympic } from 'src/app/core/models/Olympic';
@@ -72,21 +72,13 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     };
   }
 
-  tooltipText({ data }: any): string {
+  tooltipText({data}: PieData): string {
     return `${data.name}<br />🏅${data.value}`;
   }
 
   // TODO use that event hander to route on the selected country
-  onSelect(data: any): void {
-    var countryName: string = data?.name || data;
+  onSelect(data: ChartData): void {
+    var countryName: string = data.name;
     console.log('Item clicked', JSON.parse(JSON.stringify(data)));
-  }
-
-  onActivate(data: any): void {
-    console.log('Activate', JSON.parse(JSON.stringify(data)));
-  }
-
-  onDeactivate(data: any): void {
-    console.log('Deactivate', JSON.parse(JSON.stringify(data)));
   }
 }
