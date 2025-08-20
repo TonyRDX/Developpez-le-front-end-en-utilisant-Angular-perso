@@ -13,7 +13,7 @@ type ChartData = { name: string; value: number, extra: number };
 })
 export class PieChartComponent implements AfterViewInit, OnDestroy {
   selectedOlympic = output<Olympic>();
-  olympics = input<Olympic[]>([]);
+  olympics = input<Olympic[]>();
   single = computed<ChartData[]>(() =>
     (this.olympics() ?? []).map(o => this.toChartData(o))
   );
@@ -70,8 +70,8 @@ export class PieChartComponent implements AfterViewInit, OnDestroy {
   }
 
   onSelect(data: ChartData): void {
-    let country = this.olympics().find(e => e.country === data.name);
-    if (typeof country !== "undefined")
+    let country = this.olympics()?.find(e => e.country === data.name);
+    if (typeof country !== "undefined" && country !== null)
       this.selectedOlympic.emit(country);
   }
 }

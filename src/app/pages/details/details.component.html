@@ -4,24 +4,9 @@
     <!-- media queries sur les cards -->
     <h2>Olympic games app</h2>
     <hr />
-    <p>{{ (olympics$ | async)?.length }} data loaded</p>
-    <p>{{ [multi$ | async] | json }}</p>
     <a [routerLink]="['/']">Retour à la page principale</a>
   </div>
   <div #chartContainer class="chart-container">
-    <ngx-charts-line-chart
-      [view]="view"
-      [scheme]="colorScheme"
-      [legend]="legend"
-      [showXAxisLabel]="showXAxisLabel"
-      [showYAxisLabel]="showYAxisLabel"
-      [xAxis]="xAxis"
-      [yAxis]="yAxis"
-      [xAxisLabel]="xAxisLabel"
-      [yAxisLabel]="yAxisLabel"
-      [timeline]="timeline"
-      [results]="[multi$ | async]"
-      >
-    </ngx-charts-line-chart>
+    <line-chart [olympic]="olympic()"></line-chart>
   </div>  
 </div>
