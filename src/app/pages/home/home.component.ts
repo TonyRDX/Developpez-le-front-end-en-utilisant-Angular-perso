@@ -6,6 +6,7 @@ import { LegendPosition, PieData } from '@swimlane/ngx-charts';
 import { OlympicService } from 'src/app/core/services/olympic.service';
 import type { Olympic } from 'src/app/core/models/Olympic';
 import type { Participation } from 'src/app/core/models/Participation';
+import { Router } from '@angular/router';
 
 type ChartData = { name: string; value: number, extra: number };
 
@@ -18,7 +19,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   public olympics$: Observable<Olympic[] | null> = of(null); // null could be used to notify error
   public single$: Observable<ChartData[]> = of([]);
 
-  constructor(private olympicService: OlympicService) {}
+  constructor(private olympicService: OlympicService, private router: Router) {}
 
   @ViewChild('chartContainer', { static: true }) chartContainer!: ElementRef<HTMLDivElement>;
   view: [number, number] = [0, 0];
@@ -78,7 +79,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   // TODO use that event hander to route on the selected country
   onSelect(data: ChartData): void {
-    var countryName: string = data.name;
+    this.router.navigate([`/details/${data.name}`]); 
     console.log('Item clicked', JSON.parse(JSON.stringify(data)));
   }
 }
