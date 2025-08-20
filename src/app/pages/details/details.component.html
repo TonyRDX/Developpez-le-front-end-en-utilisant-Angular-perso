@@ -6,6 +6,7 @@
     <hr />
     <p>{{ (olympics$ | async)?.length }} data loaded</p>
     <p>{{ [multi$ | async] | json }}</p>
+    <a [routerLink]="['/']">Retour à la page principale</a>
   </div>
   <div #chartContainer class="chart-container">
     <ngx-charts-line-chart
