@@ -28,8 +28,7 @@ export class HomeComponent {
   );
   public olympics = toSignal(this.olympics$, { initialValue: [] });
 
-  // TODO rebind with pie-chart event
-  onSelect(data: any): void {
-    this.router.navigate([`/details/${data.name}`]); 
+  onSelectedOlympic(olympic: Olympic): void {
+    this.router.navigate([`/details/${olympic.country}`]); 
   }
 }

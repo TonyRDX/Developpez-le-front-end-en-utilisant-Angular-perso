@@ -6,6 +6,9 @@
     <p>{{ (olympics$ | async)?.length }} data loaded</p>
   </div>
   <div #chartContainer class="chart-container">
-    <pie-chart [olympics]="olympics()"></pie-chart>
+    <pie-chart 
+      [olympics]="olympics()"
+      (selectedOlympic)="onSelectedOlympic($event)"
+    ></pie-chart>
   </div>
 </div>

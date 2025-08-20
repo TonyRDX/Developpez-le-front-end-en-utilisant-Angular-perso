@@ -10,24 +10,24 @@ import { Olympic } from '../models/Olympic';
 export class OlympicService {
   private olympicUrl = './assets/mock/olympic.json';
   // TODO check deeply if should add undefined to avoid error trigger when not initialized. Seems unlikely
-  private olympics$ = new BehaviorSubject<Olympic[] | null>(null); 
+  private olympics$ = new BehaviorSubject<Olympic[]>([]); 
 
   constructor(private http: HttpClient) {}
 
   loadInitialData() {
-    return this.http.get<Olympic[] | null>(this.olympicUrl).pipe(
+    return this.http.get<Olympic[]>(this.olympicUrl).pipe(
       tap((value) => this.olympics$.next(value)),
       catchError((error) => {
         // TODO: improve error handling
         console.error(error);
         // can be useful to end loading state and let the user know something went wrong
-        this.olympics$.next(null);
+        this.olympics$.next([]);
         return of(null);
       })
     );
   }
 
-  getOlympics(): Observable<Olympic[] | null> {
-    return (this.olympics$.asObservable() || null);
+  getOlympics(): Observable<Olympic[]> {
+    return this.olympics$.asObservable();
   }
 }

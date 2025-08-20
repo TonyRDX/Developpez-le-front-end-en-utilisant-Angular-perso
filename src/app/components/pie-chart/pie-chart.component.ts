@@ -1,9 +1,8 @@
-import { AfterViewInit, Component, computed, ElementRef, input, OnDestroy, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, computed, ElementRef, inject, input, OnDestroy, output } from '@angular/core';
 import { LegendPosition, PieData } from '@swimlane/ngx-charts';
 
 import type { Olympic } from 'src/app/core/models/Olympic';
 import type { Participation } from 'src/app/core/models/Participation';
-import { Router } from '@angular/router';
 
 type ChartData = { name: string; value: number, extra: number };
 
@@ -13,14 +12,14 @@ type ChartData = { name: string; value: number, extra: number };
   styleUrls: ['./pie-chart.component.scss'],
 })
 export class PieChartComponent implements AfterViewInit, OnDestroy {
-  olympics = input<Olympic[] | null>(null);
+  selectedOlympic = output<Olympic>();
+  olympics = input<Olympic[]>([]);
   single = computed<ChartData[]>(() =>
     (this.olympics() ?? []).map(o => this.toChartData(o))
   );
 
-  constructor(private host: ElementRef<HTMLElement>, private router: Router) {}
+  private host = inject(ElementRef<HTMLElement>);
 
-  @ViewChild('chartContainer', { static: true }) chartContainer!: ElementRef<HTMLDivElement>;
   view: [number, number] = [0, 0];
   private ro?: ResizeObserver;
 
@@ -70,9 +69,9 @@ export class PieChartComponent implements AfterViewInit, OnDestroy {
     return `${data.name}<br />🏅${data.value}`;
   }
 
-  // TODO remove the router to emit towards the parent
   onSelect(data: ChartData): void {
-    this.router.navigate([`/details/${data.name}`]); 
-    console.log('Item clicked', JSON.parse(JSON.stringify(data)));
+    let country = this.olympics().find(e => e.country === data.name);
+    if (typeof country !== "undefined")
+      this.selectedOlympic.emit(country);
   }
 }
