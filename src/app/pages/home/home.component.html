@@ -6,19 +6,6 @@
     <p>{{ (olympics$ | async)?.length }} data loaded</p>
   </div>
   <div #chartContainer class="chart-container">
-    <ngx-charts-pie-chart
-      [view]="view"
-      [scheme]="colorScheme"
-      [results]="single$ | async"
-      [gradient]="gradient"
-      [legend]="showLegend"
-      [legendPosition]="legendPosition"
-      [labels]="showLabels"
-      [doughnut]="isDoughnut"
-      (select)="onSelect($event)"
-      [tooltipText]="tooltipText"
-      [maxLabelLength]="maxLabelLength"
-      >
-    </ngx-charts-pie-chart>
-  </div>  
+    <pie-chart [olympics]="olympics()"></pie-chart>
+  </div>
 </div>

@@ -12,3 +12,13 @@
     align-items: center;
     justify-content: center;
 }
+
+.pie-chart {
+    flex: 1;
+    min-height: 0;     
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
