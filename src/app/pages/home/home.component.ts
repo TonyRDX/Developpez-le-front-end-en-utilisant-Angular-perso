@@ -31,4 +31,7 @@ export class HomeComponent {
   onSelectedOlympic(olympic: Olympic): void {
     this.router.navigate([`/details/${olympic.country}`]); 
   }
+
+  countryNumber = "32";
+  joNumber = "10";
 }

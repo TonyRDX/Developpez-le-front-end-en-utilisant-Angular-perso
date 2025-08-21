@@ -15,6 +15,10 @@ export class DetailsComponent {
   private route = inject(ActivatedRoute);
   private olympicService = inject(OlympicService);
 
+  totalEntries = 3;
+  totalMedals = 5;
+  totalAthletes = 32;
+
   public olympic: Signal<Olympic> = toSignal(
     this.route.paramMap.pipe(
       map(params => params.get('name') ?? ''),          
