@@ -1,14 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 body .ngx-charts-tooltip-content .tooltip-content {
-    font-size: 18px !important;
+    font-size: 1.8rem !important;
+}
+
+.ngx-charts text {
+    font-size: 1.8rem;
 }
 
 html {
   font-size: 62.5%;
-}
-
-.ngx-charts text {
-    font-size: 18px;
 }
 
 * {
@@ -16,16 +16,17 @@ html {
   overflow: hidden;
 }
 
+/* MAIN LAYOUT */ 
 .container {
   display: flex;
   flex-direction: column;
   height: 98dvh; // dvh useful on modern mobile
 }
 
-.header-container {
+.card-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
 }
 
 .chart-container {
@@ -40,27 +41,41 @@ html {
   justify-content: center;
 }
 
-.card, .header-card {
-  border: 3px solid #04838f;
-  border-radius: 10px;
-  color: #666;
-  text-align: center;
-  padding: 10px;
-  margin: 10px;
-}
+@media (min-aspect-ratio: 4/3) {
+  .container {
+    flex-wrap: wrap;
+  }
 
-.header-card {
-  font-size: 24px;
-  max-width: fit-content;
-  align-self: center;
+  .row {
+    flex-direction: column;
+  }
+
+  .card-container {
+    margin-bottom: 50px;
+    flex: 1 0 100%;
+    order: -1;
+  }
+}
+/* END MAIN LAYOUT */ 
+
+.title p {
+  font-size: 2.4rem;
   justify-self: center;
   background-color:#04838f;
   color: white;
 }
 
+.card, .title p {
+  border: 3px solid #04838f;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+}
+
 .card p {
   margin: 4px;
-  font-size: 2.4rem;
+  font-size: 2rem;
   text-wrap: nowrap;
 }
 
@@ -70,19 +85,4 @@ html {
 
 .card-number {
   color: #222;
-}
-
-
-@media (min-aspect-ratio: 4/3) {
-  .container {
-    flex-direction: row;
-  }
-
-  .row {
-    flex-direction: column;
-  }
-
-  .header-card {
-    margin-bottom: 50px;
-  }
 }
