@@ -1,5 +1,10 @@
-
-<div class="container">
+<div id="loader" *ngIf="isLoading()">
+  <div class="spinner"></div>
+</div>
+<div id="error" *ngIf="displayedMessage() != ''">
+  <span>{{displayedMessage()}}</span>
+</div>
+<div class="container" *ngIf="!isLoading() && displayedMessage() == ''">
   <div class="title">
     <p>Medals per Country</p>
   </div>

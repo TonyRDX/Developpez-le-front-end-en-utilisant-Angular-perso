@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  olympicUrl: './assets/mock/olympic-edge-case.json',
+  dataDelay: 3000,
+  alwaysFailFetch: false,
 };
 
 /*
