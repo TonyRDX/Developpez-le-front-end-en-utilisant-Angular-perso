@@ -5,6 +5,7 @@ import { OlympicService } from 'src/app/core/services/olympic.service';
 import type { Olympic } from 'src/app/core/models/Olympic';
 import { ActivatedRoute } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { Participation } from 'src/app/core/models/Participation';
 
 @Component({
   selector: 'app-details',
@@ -15,9 +16,21 @@ export class DetailsComponent {
   private route = inject(ActivatedRoute);
   private olympicService = inject(OlympicService);
 
-  totalEntries = 3;
-  totalMedals = 5;
-  totalAthletes = 32;
+  get totalEntries(): number {
+    return this.olympic().participations.length;
+  }
+
+  get totalMedals(): number {
+    return this.olympic().participations.reduce(
+      (sum: number, el: Participation) => { return sum + el.medalsCount}, 0
+    );
+  }
+
+  get totalAthletes(): number {
+    return this.olympic().participations.reduce(
+      (sum: number, el: Participation) => { return sum + el.athleteCount}, 0
+    );
+  };
 
   public olympic: Signal<Olympic> = toSignal(
     this.route.paramMap.pipe(
