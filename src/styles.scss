@@ -23,18 +23,12 @@ html {
   height: 98dvh; // dvh useful on modern mobile
 }
 
-.card-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
 .chart-container {
   display: flex;
   flex: 1;
 }
 
-.row {
+.card-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -45,15 +39,11 @@ html {
   .container {
     flex-wrap: wrap;
   }
-
-  .row {
-    flex-direction: column;
-  }
-
+  
   .card-container {
-    margin-bottom: 50px;
     flex: 1 0 100%;
     order: -1;
+    flex-direction: column;
   }
 }
 /* END MAIN LAYOUT */ 
