@@ -5,7 +5,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const mdFile = path.join(__dirname, 'README.md');
+const mdFile = path.join(__dirname, '../README.md');
 const imagesFolder = path.join(__dirname, '../documentation/graph');
 
 // Lire le contenu existant du fichier
@@ -21,7 +21,7 @@ const files = fs.readdirSync(imagesFolder)
 // Créer la nouvelle section auto-générée
 let autoSection = '\n# Auto generated\n\n';
 for (const file of files) {
-  autoSection += `- [${file}](images/${file})\n`;
+  autoSection += `- ![${file}](images/${file})\n`;
 }
 
 // Écrire le fichier avec la nouvelle section ajoutée

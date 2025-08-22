@@ -22,3 +22,6 @@ As you can see, an architecture has already been defined for the project. It is 
 
 
 ![routes](documentation/graph/dependencies.svg)
+# Auto generated
+
+- ![dependencies.svg](images/dependencies.svg)
