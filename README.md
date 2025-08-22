@@ -20,3 +20,5 @@ As you can see, an architecture has already been defined for the project. It is 
 - `pages` folder: contains components used for routing
 - `core` folder: contains the business logic (`services` and `models` folders)
 
+
+[routes](documentation/graph/dependencies.svg)
