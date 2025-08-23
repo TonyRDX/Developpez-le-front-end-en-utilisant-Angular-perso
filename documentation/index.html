@@ -96,11 +96,31 @@
 <li><code>pages</code> folder: contains components used for routing</li>
 <li><code>core</code> folder: contains the business logic (<code>services</code> and <code>models</code> folders)</li>
 </ul>
-<p><img src="documentation/graph/dependencies.svg" alt="routes" class="img-responsive"></p>
-<h1>Auto generated</h1>
+<h2>Main dependencies</h2>
 <ul>
-<li><img src="documentation/graph/dependencies.svg" alt="dependencies.svg" class="img-responsive"></li>
+<li>@compodoc/compodoc</li>
+<li>@swimlane/ngx-charts</li>
+<li>rxjs</li>
+<li>tslib</li>
 </ul>
+<h2>Main routes</h2>
+<p><a href="src/app/app-routing.module.ts">app-routing.module.ts</a></p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-ts">  {
+    path: &#39;&#39;,
+    component: HomeComponent,
+  },
+  {
+    path: &#39;details/:name&#39;,
+    component: DetailsComponent,
+  },
+  {
+    path: &#39;**&#39;, // wildcard
+    component: NotFoundComponent,
+  }</code></pre></div><h1>Compodoc sections</h1>
+<h2>DOM tree</h2>
+<p><a href="http://localhost:8080/components/HomeComponent.html#dom-tree">http://localhost:8080/components/HomeComponent.html#dom-tree</a></p>
+<h1>Auto generated</h1>
+<p><img src="documentation/graph/dependencies.svg" alt="dependencies.svg" class="img-responsive"></p>
 
 
 
