@@ -1,29 +1,55 @@
+
+
 # OlympicGamesStarter
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.3.
 
-Don't forget to install your node_modules before starting (`npm install`).
+## Before to start
+- [npx] ng version
+- npm install
 
-## Development server
+## Dev and build command
+- npm start                        // http://localhost:4200/
+- [npx] ng serve [--host 0.0.0.0]  // 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- npm build                        // dist/
+- [npx] ng build                   // 
 
 ## Where to start
-
-As you can see, an architecture has already been defined for the project. It is just a suggestion, you can choose to use your own. The predefined architecture includes (in addition to the default angular architecture) the following:
-
+src/app :
 - `components` folder: contains every reusable components
 - `pages` folder: contains components used for routing
 - `core` folder: contains the business logic (`services` and `models` folders)
 
-I suggest you to start by understanding this starter code. Pay an extra attention to the `app-routing.module.ts` and the `olympic.service.ts`.
+## Main dependencies
 
-Once mastered, you should continue by creating the typescript interfaces inside the `models` folder. As you can see I already created two files corresponding to the data included inside the `olympic.json`. With your interfaces, improve the code by replacing every `any` by the corresponding interface.
+- @compodoc/compodoc
+- @swimlane/ngx-charts
+- rxjs
+- tslib
 
-You're now ready to implement the requested features.
+# Compodoc sections
 
-Good luck!
+## Compodoc intro
+
+`/docs` folder is our custom folder place.
+`/documentation` folder is the auto-generated files by below command.
+
+- npx compodoc --watch --serve -p .\tsconfig.json --templates docs/templates
+- npx compodoc -p tsconfig.json --templates docs/templates
+
+NB : Template is used for enhanced DOM tree, including class name in each node. If tree-custom is updated on your own, please update `/docs/tree-custom` then copy it in `documentation/js`. 
+
+## DOM tree
+
+http://localhost:8080/components/HomeComponent.html#dom-tree
+http://localhost:8080/components/DetailsComponent.html#dom-tree
+
+# Diagrams
+
+Check handmade diagrams here [here (/docs/diagrams)](/docs/diagrams/) 
+
+![](/docs/diagrams/main-diagram) 
+![](/docs/diagrams/data-flow-diagram) 
+
+/!\ Please note as it is handmade, it could be outdated in later iterations

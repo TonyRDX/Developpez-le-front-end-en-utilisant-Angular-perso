@@ -1,0 +1,1965 @@
+{
+    "pipes": [],
+    "interfaces": [
+        {
+            "name": "Olympic",
+            "id": "interface-Olympic-6f3786ff52424d496ae194cd2b9028b8f41558f75fa7913cfba5ed0a43f7dcda46955a1d85238f433b1745ca32f6f135c75c7b372467cb8bc5cfdc435f821aec",
+            "file": "src/app/core/models/Olympic.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import type { Participation } from \"./Participation\";\r\n\r\nexport interface Olympic {\r\n    id: number;\r\n    country: string;\r\n    participations: Participation[];\r\n}\r\n",
+            "properties": [
+                {
+                    "name": "country",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 14
+                },
+                {
+                    "name": "id",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 13
+                },
+                {
+                    "name": "participations",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Participation[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        },
+        {
+            "name": "Participation",
+            "id": "interface-Participation-d8b8e4428a01b9b6472d3ff539840f623ca97d1006c275ee71de5c66256e6b7e09e5e2afdfa53b4ae919331f0bf5fb87c5cc53c65a56802a30181cefdcd673c8",
+            "file": "src/app/core/models/Participation.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface Participation {\r\n    id: number;\r\n    year: number;\r\n    city: string;\r\n    medalsCount: number;\r\n    athleteCount: number;\r\n}",
+            "properties": [
+                {
+                    "name": "athleteCount",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 17
+                },
+                {
+                    "name": "city",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15
+                },
+                {
+                    "name": "id",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 13
+                },
+                {
+                    "name": "medalsCount",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 16
+                },
+                {
+                    "name": "year",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 14
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        }
+    ],
+    "injectables": [
+        {
+            "name": "OlympicService",
+            "id": "injectable-OlympicService-de20bb217c2a03252eae42d5f710e7012533c40d86165f2d6bf41d9baf8fefc39f89f44673bfa7c403c86ce78943dd1483b6fbfcdd0ee4450e432aff397f6996",
+            "file": "src/app/core/services/olympic.service.ts",
+            "properties": [
+                {
+                    "name": "hasFailed",
+                    "defaultValue": "signal(false)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 16,
+                    "modifierKind": [
+                        125,
+                        148
+                    ]
+                },
+                {
+                    "name": "http",
+                    "defaultValue": "inject(HttpClient)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 19,
+                    "modifierKind": [
+                        124
+                    ]
+                },
+                {
+                    "name": "isLoading",
+                    "defaultValue": "signal(true)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15,
+                    "modifierKind": [
+                        125,
+                        148
+                    ]
+                },
+                {
+                    "name": "isRetrying",
+                    "defaultValue": "signal(false)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 17,
+                    "modifierKind": [
+                        125,
+                        148
+                    ]
+                },
+                {
+                    "name": "olympics$",
+                    "defaultValue": "new BehaviorSubject<Olympic[]>([])",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 14,
+                    "modifierKind": [
+                        124
+                    ]
+                },
+                {
+                    "name": "olympicUrl",
+                    "defaultValue": "environment.olympicUrl",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 12,
+                    "modifierKind": [
+                        124
+                    ]
+                },
+                {
+                    "name": "tryNumber",
+                    "defaultValue": "signal(0)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 18,
+                    "modifierKind": [
+                        126,
+                        148
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "getOlympics",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Observable<Olympic[]>",
+                    "typeParameters": [],
+                    "line": 45,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "loadInitialData",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 21,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { HttpClient, HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';\r\nimport { computed, inject, Injectable, signal } from '@angular/core';\r\nimport { BehaviorSubject, Observable, of, throwError } from 'rxjs';\r\nimport { catchError, delay, finalize, map, retry, switchMap, tap } from 'rxjs/operators';\r\nimport { Olympic } from '../models/Olympic';\r\nimport { environment } from 'src/environments/environment';\r\n\r\n@Injectable({\r\n  providedIn: 'root',\r\n})\r\nexport class OlympicService {\r\n  protected olympicUrl = environment.olympicUrl;\r\n  // TODO check deeply if should add undefined to avoid error trigger when not initialized. Seems unlikely\r\n  protected olympics$ = new BehaviorSubject<Olympic[]>([]); \r\n  public readonly isLoading = signal(true);\r\n  public readonly hasFailed = signal(false);\r\n  public readonly isRetrying = signal(false);\r\n  public static readonly tryNumber = signal(0);\r\n  protected http = inject(HttpClient);\r\n\r\n  loadInitialData() {\r\n    return this.http.get<Olympic[]>(this.olympicUrl).pipe(\r\n      tap({\r\n        error: () => {this.isRetrying.set(true); \r\n                    OlympicService.tryNumber.set(OlympicService.tryNumber()+1);\r\n                    console.log(OlympicService.tryNumber());\r\n        }\r\n      }),\r\n      retry(3),\r\n      tap((value) => {\r\n        this.olympics$.next(value);\r\n      }),\r\n      catchError((error) => {\r\n        console.error(error);\r\n        this.hasFailed.set(true);\r\n        return of([]);\r\n      }),\r\n      finalize(() => {\r\n        this.isLoading.set(false);\r\n        this.isRetrying.set(false);\r\n      })\r\n    );\r\n  }\r\n\r\n  getOlympics(): Observable<Olympic[]> {\r\n    return this.olympics$.asObservable();\r\n  }\r\n}\r\n\r\n@Injectable()\r\nexport class DelayInterceptor implements HttpInterceptor {\r\n  static tryNumber = 0;\r\n  static alwaysFail = environment.alwaysFailFetch && !environment.production;\r\n  static shouldFail = computed(() => {return ((OlympicService.tryNumber() % 3) == 0) && !environment.alwaysFailFetch});\r\n  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {\r\n    return next.handle(req).pipe(\r\n      delay(environment.dataDelay), \r\n      switchMap((event)=> {\r\n        if (event instanceof HttpResponse) {\r\n          return !DelayInterceptor.shouldFail()\r\n            ? of(event)\r\n            : throwError(() => new HttpErrorResponse({\r\n              status: 503,\r\n              statusText: 'Service Unavailable (simulé)',\r\n              url: req.url\r\n            }));\r\n        }\r\n        return of(event);\r\n      }) \r\n    );\r\n  }\r\n}\r\n\r\n",
+            "extends": [],
+            "type": "injectable"
+        }
+    ],
+    "guards": [],
+    "interceptors": [
+        {
+            "name": "DelayInterceptor",
+            "id": "injectable-DelayInterceptor-de20bb217c2a03252eae42d5f710e7012533c40d86165f2d6bf41d9baf8fefc39f89f44673bfa7c403c86ce78943dd1483b6fbfcdd0ee4450e432aff397f6996",
+            "file": "src/app/core/services/olympic.service.ts",
+            "properties": [
+                {
+                    "name": "alwaysFail",
+                    "defaultValue": "environment.alwaysFailFetch && !environment.production",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 53,
+                    "modifierKind": [
+                        126
+                    ]
+                },
+                {
+                    "name": "shouldFail",
+                    "defaultValue": "computed(() => {return ((OlympicService.tryNumber() % 3) == 0) && !environment.alwaysFailFetch})",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 54,
+                    "modifierKind": [
+                        126
+                    ]
+                },
+                {
+                    "name": "tryNumber",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 52,
+                    "modifierKind": [
+                        126
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "intercept",
+                    "args": [
+                        {
+                            "name": "req",
+                            "type": "HttpRequest<any>",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "next",
+                            "type": "HttpHandler",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "Observable<HttpEvent<any>>",
+                    "typeParameters": [],
+                    "line": 55,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "req",
+                            "type": "HttpRequest<any>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "next",
+                            "type": "HttpHandler",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { HttpClient, HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';\r\nimport { computed, inject, Injectable, signal } from '@angular/core';\r\nimport { BehaviorSubject, Observable, of, throwError } from 'rxjs';\r\nimport { catchError, delay, finalize, map, retry, switchMap, tap } from 'rxjs/operators';\r\nimport { Olympic } from '../models/Olympic';\r\nimport { environment } from 'src/environments/environment';\r\n\r\n@Injectable({\r\n  providedIn: 'root',\r\n})\r\nexport class OlympicService {\r\n  protected olympicUrl = environment.olympicUrl;\r\n  // TODO check deeply if should add undefined to avoid error trigger when not initialized. Seems unlikely\r\n  protected olympics$ = new BehaviorSubject<Olympic[]>([]); \r\n  public readonly isLoading = signal(true);\r\n  public readonly hasFailed = signal(false);\r\n  public readonly isRetrying = signal(false);\r\n  public static readonly tryNumber = signal(0);\r\n  protected http = inject(HttpClient);\r\n\r\n  loadInitialData() {\r\n    return this.http.get<Olympic[]>(this.olympicUrl).pipe(\r\n      tap({\r\n        error: () => {this.isRetrying.set(true); \r\n                    OlympicService.tryNumber.set(OlympicService.tryNumber()+1);\r\n                    console.log(OlympicService.tryNumber());\r\n        }\r\n      }),\r\n      retry(3),\r\n      tap((value) => {\r\n        this.olympics$.next(value);\r\n      }),\r\n      catchError((error) => {\r\n        console.error(error);\r\n        this.hasFailed.set(true);\r\n        return of([]);\r\n      }),\r\n      finalize(() => {\r\n        this.isLoading.set(false);\r\n        this.isRetrying.set(false);\r\n      })\r\n    );\r\n  }\r\n\r\n  getOlympics(): Observable<Olympic[]> {\r\n    return this.olympics$.asObservable();\r\n  }\r\n}\r\n\r\n@Injectable()\r\nexport class DelayInterceptor implements HttpInterceptor {\r\n  static tryNumber = 0;\r\n  static alwaysFail = environment.alwaysFailFetch && !environment.production;\r\n  static shouldFail = computed(() => {return ((OlympicService.tryNumber() % 3) == 0) && !environment.alwaysFailFetch});\r\n  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {\r\n    return next.handle(req).pipe(\r\n      delay(environment.dataDelay), \r\n      switchMap((event)=> {\r\n        if (event instanceof HttpResponse) {\r\n          return !DelayInterceptor.shouldFail()\r\n            ? of(event)\r\n            : throwError(() => new HttpErrorResponse({\r\n              status: 503,\r\n              statusText: 'Service Unavailable (simulé)',\r\n              url: req.url\r\n            }));\r\n        }\r\n        return of(event);\r\n      }) \r\n    );\r\n  }\r\n}\r\n\r\n",
+            "extends": [],
+            "type": "interceptor"
+        }
+    ],
+    "classes": [],
+    "directives": [],
+    "components": [
+        {
+            "name": "AppComponent",
+            "id": "component-AppComponent-06b1333f982e9227e6c0059cb543fe4bdab8e12583a9ea15bad3adc05ff504bce862ae0e24359e7aa0333815a54dc5f2b7349832f23a3d358d4467eef5c24c98",
+            "file": "src/app/app.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-root",
+            "styleUrls": [
+                "./app.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./app.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "olympicService",
+                    "defaultValue": "inject(OlympicService)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "OlympicService",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 11,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 13,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, inject, OnInit } from '@angular/core';\r\nimport { take } from 'rxjs';\r\nimport { OlympicService } from './core/services/olympic.service';\r\n\r\n@Component({\r\n  selector: 'app-root',\r\n  templateUrl: './app.component.html',\r\n  styleUrls: ['./app.component.scss'],\r\n})\r\nexport class AppComponent implements OnInit {\r\n  private olympicService: OlympicService = inject(OlympicService);\r\n\r\n  ngOnInit(): void {\r\n    this.olympicService.loadInitialData().pipe(take(1)).subscribe();\r\n  }\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./app.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<router-outlet></router-outlet>\r\n"
+        },
+        {
+            "name": "DetailsComponent",
+            "id": "component-DetailsComponent-e43ccaa39b085083167c348f4a45612c333b9bb575fe0900f502cbb00d42a3b3baae453c56d1ba3183ba5869e77e5cdb90efaf823d6a9f554cdff0abc793ac39",
+            "file": "src/app/pages/details/details.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-details",
+            "styleUrls": [
+                "./details.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./details.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "olympic",
+                    "defaultValue": "toSignal(\r\n    this.route.paramMap.pipe(\r\n      map(params => params.get('name') ?? ''),          \r\n      switchMap((name) =>\r\n        this.olympicService.getOlympics().pipe(\r\n          map((data) => data?.find((entry: Olympic) => (entry.country.toLowerCase() === name?.toLowerCase())) ?? {id: 0, country:\"\", participations:[]} )        \r\n       )\r\n      )\r\n    ),\r\n    {initialValue: {id: 0, country: \"\", participations: []}}\r\n  )",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Signal<Olympic>",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 35,
+                    "modifierKind": [
+                        125
+                    ]
+                },
+                {
+                    "name": "olympicService",
+                    "defaultValue": "inject(OlympicService)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 17,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "route",
+                    "defaultValue": "inject(ActivatedRoute)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 16,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, inject, Signal } from '@angular/core';\r\nimport { map, switchMap } from 'rxjs/operators';\r\n\r\nimport { OlympicService } from 'src/app/core/services/olympic.service';\r\nimport type { Olympic } from 'src/app/core/models/Olympic';\r\nimport { ActivatedRoute } from '@angular/router';\r\nimport { toSignal } from '@angular/core/rxjs-interop';\r\nimport { Participation } from 'src/app/core/models/Participation';\r\n\r\n@Component({\r\n  selector: 'app-details',\r\n  templateUrl: './details.component.html',\r\n  styleUrls: ['./details.component.scss'],\r\n})\r\nexport class DetailsComponent {\r\n  private route = inject(ActivatedRoute);\r\n  private olympicService = inject(OlympicService);\r\n\r\n  get totalEntries(): number {\r\n    return this.olympic().participations.length;\r\n  }\r\n\r\n  get totalMedals(): number {\r\n    return this.olympic().participations.reduce(\r\n      (sum: number, el: Participation) => { return sum + el.medalsCount}, 0\r\n    );\r\n  }\r\n\r\n  get totalAthletes(): number {\r\n    return this.olympic().participations.reduce(\r\n      (sum: number, el: Participation) => { return sum + el.athleteCount}, 0\r\n    );\r\n  };\r\n\r\n  public olympic: Signal<Olympic> = toSignal(\r\n    this.route.paramMap.pipe(\r\n      map(params => params.get('name') ?? ''),          \r\n      switchMap((name) =>\r\n        this.olympicService.getOlympics().pipe(\r\n          map((data) => data?.find((entry: Olympic) => (entry.country.toLowerCase() === name?.toLowerCase())) ?? {id: 0, country:\"\", participations:[]} )        \r\n       )\r\n      )\r\n    ),\r\n    {initialValue: {id: 0, country: \"\", participations: []}}\r\n  );\r\n}",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./details.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "accessors": {
+                "totalEntries": {
+                    "name": "totalEntries",
+                    "getSignature": {
+                        "name": "totalEntries",
+                        "type": "number",
+                        "returnType": "number",
+                        "line": 19
+                    }
+                },
+                "totalMedals": {
+                    "name": "totalMedals",
+                    "getSignature": {
+                        "name": "totalMedals",
+                        "type": "number",
+                        "returnType": "number",
+                        "line": 23
+                    }
+                },
+                "totalAthletes": {
+                    "name": "totalAthletes",
+                    "getSignature": {
+                        "name": "totalAthletes",
+                        "type": "number",
+                        "returnType": "number",
+                        "line": 29
+                    }
+                }
+            },
+            "templateData": "\r\n<div class=\"container\">\r\n  <a [routerLink]=\"['/']\">Retour à la page principale</a>\r\n  <div class=\"title\">\r\n    <p>{{ olympic().country }}</p>\r\n  </div>\r\n  <div class=\"card-container\">\r\n    <div class=\"card\">\r\n      <p class=\"card-title\">Number of entries</p> \r\n      <p class=\"card-number\"><b>{{ totalEntries }}</b></p>\r\n    </div>\r\n    <div class=\"card\">\r\n      <p class=\"card-title\">Total number medals</p>\r\n      <p class=\"card-number\"><b>{{ totalMedals }}</b></p>\r\n    </div>\r\n    <div class=\"card\">\r\n      <p class=\"card-title\">Total number of athletes</p>\r\n      <p class=\"card-number\"><b>{{ totalAthletes }}</b></p>\r\n    </div>\r\n  </div>\r\n  <div #chartContainer class=\"chart-container\">\r\n    <line-chart [olympic]=\"olympic()\"></line-chart>\r\n  </div>  \r\n</div>\r\n"
+        },
+        {
+            "name": "HomeComponent",
+            "id": "component-HomeComponent-bb4042cbfa741a9ccb86c11d7f19a98b7481949457accb1a9d2f8108ada2948d4870b03900701a594d17ba66148d1b3643123b7934b58c275721e25bcbc8a219",
+            "file": "src/app/pages/home/home.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-home",
+            "styleUrls": [
+                "./home.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./home.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "displayedMessage",
+                    "defaultValue": "computed(() => (\r\n                                                      !this.isRetrying() && this.hasFailed()) ? \"Loading failed. Please reload later.\" :\r\n                                                      this.isRetrying() ? \"Retrying. Should take some seconds.\" : \"\"\r\n                                                    )",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 24,
+                    "modifierKind": [
+                        125,
+                        148
+                    ]
+                },
+                {
+                    "name": "error",
+                    "defaultValue": "signal<string | null>(null)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 22,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "hasFailed",
+                    "defaultValue": "this.olympicService.hasFailed",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 20,
+                    "modifierKind": [
+                        125,
+                        148
+                    ]
+                },
+                {
+                    "name": "isLoading",
+                    "defaultValue": "this.olympicService.isLoading",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 19,
+                    "modifierKind": [
+                        125,
+                        148
+                    ]
+                },
+                {
+                    "name": "isRetrying",
+                    "defaultValue": "this.olympicService.isRetrying",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 21,
+                    "modifierKind": [
+                        125,
+                        148
+                    ]
+                },
+                {
+                    "name": "olympics",
+                    "defaultValue": "toSignal(this.olympics$, { initialValue: [] })",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Signal<Olympic[]>",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 36,
+                    "modifierKind": [
+                        125
+                    ]
+                },
+                {
+                    "name": "olympics$",
+                    "defaultValue": "this.olympicService.getOlympics().pipe(\r\n    catchError(() => {\r\n      this.error.set('Oups, impossible de charger les données.');\r\n      return of([] as Olympic[]);\r\n    }),\r\n    finalize(() => this.isLoading.set(false))\r\n  )",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 29,
+                    "modifierKind": [
+                        125
+                    ]
+                },
+                {
+                    "name": "olympicService",
+                    "defaultValue": "inject(OlympicService)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "OlympicService",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 16,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "router",
+                    "defaultValue": "inject(Router)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Router",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 17,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "onSelectedOlympic",
+                    "args": [
+                        {
+                            "name": "olympic",
+                            "type": "Olympic",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 38,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "olympic",
+                            "type": "Olympic",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, computed, inject, Signal, signal } from '@angular/core';\r\nimport { of } from 'rxjs';\r\nimport { catchError, finalize, map } from 'rxjs/operators';\r\nimport { toSignal } from '@angular/core/rxjs-interop';\r\n\r\nimport { OlympicService } from 'src/app/core/services/olympic.service';\r\nimport type { Olympic } from 'src/app/core/models/Olympic';\r\nimport { Router } from '@angular/router';\r\n\r\n@Component({\r\n  selector: 'app-home',\r\n  templateUrl: './home.component.html',\r\n  styleUrls: ['./home.component.scss'],\r\n})\r\nexport class HomeComponent {\r\n  private olympicService: OlympicService = inject(OlympicService);\r\n  private router: Router = inject(Router);\r\n\r\n  public readonly isLoading = this.olympicService.isLoading;\r\n  public readonly hasFailed = this.olympicService.hasFailed;\r\n  public readonly isRetrying = this.olympicService.isRetrying;\r\n  private error = signal<string | null>(null);\r\n  // TODO move it on the html side ?\r\n  public readonly displayedMessage = computed(() => (\r\n                                                      !this.isRetrying() && this.hasFailed()) ? \"Loading failed. Please reload later.\" :\r\n                                                      this.isRetrying() ? \"Retrying. Should take some seconds.\" : \"\"\r\n                                                    );\r\n\r\n  public olympics$ = this.olympicService.getOlympics().pipe(\r\n    catchError(() => {\r\n      this.error.set('Oups, impossible de charger les données.');\r\n      return of([] as Olympic[]);\r\n    }),\r\n    finalize(() => this.isLoading.set(false))\r\n  );\r\n  public olympics: Signal<Olympic[]> = toSignal(this.olympics$, { initialValue: [] });\r\n\r\n  onSelectedOlympic(olympic: Olympic): void {\r\n    this.router.navigate([`/details/${olympic.country}`]); \r\n  }\r\n\r\n  get countryNumber(): number {\r\n    return this.olympics().length;\r\n  };\r\n\r\n  // detect if not all country participated on a year\r\n  get joNumber(): number {\r\n    return new Set(\r\n      this.olympics()\r\n        .map((country) => country.participations.map(p => p.id))\r\n        .reduce((acc, val) => acc.concat(val), [])\r\n    ).size;\r\n  }\r\n}",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "#loader {\r\n    position: fixed;\r\n    inset: 0;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    z-index: 9998;\r\n    font: 16px sans-serif;\r\n}\r\n#hide {\r\n    background: white;\r\n    position: fixed;\r\n    inset: 0;\r\n    background: white;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    z-index: 9997;\r\n}\r\n#error {\r\n    position: fixed;\r\n    inset: 0;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    margin-bottom: 20%;\r\n    z-index: 9999;\r\n    font: 16px sans-serif;\r\n}\r\n.spinner {\r\n    width: 40px;\r\n    height: 40px;\r\n    border: 4px solid #ddd;\r\n    border-top-color: #333;\r\n    border-radius: 50%;\r\n    animation: spin 1s linear infinite;\r\n}\r\n@keyframes spin {\r\n    to { transform: rotate(360deg); }\r\n}\r\n#loader.hidden {\r\n    display: none;\r\n}",
+                    "styleUrl": "./home.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "accessors": {
+                "countryNumber": {
+                    "name": "countryNumber",
+                    "getSignature": {
+                        "name": "countryNumber",
+                        "type": "number",
+                        "returnType": "number",
+                        "line": 42
+                    }
+                },
+                "joNumber": {
+                    "name": "joNumber",
+                    "getSignature": {
+                        "name": "joNumber",
+                        "type": "number",
+                        "returnType": "number",
+                        "line": 47
+                    }
+                }
+            },
+            "templateData": "<div id=\"loader\" *ngIf=\"isLoading()\">\r\n  <div class=\"spinner\"></div>\r\n</div>\r\n<div id=\"error\" *ngIf=\"displayedMessage() != ''\">\r\n  <span>{{displayedMessage()}}</span>\r\n</div>\r\n<div class=\"container\" *ngIf=\"!isLoading() && displayedMessage() == ''\">\r\n  <div class=\"title\">\r\n    <p>Medals per Country</p>\r\n  </div>\r\n  <div class=\"card-container\">\r\n    <div class=\"card\">\r\n      <p class=\"card-title\">Number of JOs</p> \r\n      <p class=\"card-number\"><b>{{ joNumber }}</b></p>\r\n    </div>\r\n    <div class=\"card\">\r\n      <p class=\"card-title\">Number of countries</p>\r\n      <p class=\"card-number\"><b>{{ countryNumber }}</b></p>\r\n    </div>\r\n  </div>\r\n  <div #chartContainer class=\"chart-container\">\r\n    <pie-chart \r\n      [olympics]=\"olympics()\"\r\n      (selectedOlympic)=\"onSelectedOlympic($event)\"\r\n    ></pie-chart>\r\n  </div>\r\n</div>\r\n"
+        },
+        {
+            "name": "LineChartComponent",
+            "id": "component-LineChartComponent-a65208943cdf1ffc21cee9c754896aa99a0df445f5700501424a9227dcefde7826831a6d500db3877faa7160cb563a27d0d3ddd9802e7a7edf64bc90ba7efcd0",
+            "file": "src/app/components/line-chart/line-chart.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "line-chart",
+            "styleUrls": [
+                "./line-chart.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./line-chart.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "olympic",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15,
+                    "required": false
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "animations",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 48
+                },
+                {
+                    "name": "colorScheme",
+                    "defaultValue": "'cool'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 56
+                },
+                {
+                    "name": "host",
+                    "defaultValue": "inject(ElementRef<HTMLElement>)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 19,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "legend",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 46
+                },
+                {
+                    "name": "olympic",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15,
+                    "required": false
+                },
+                {
+                    "name": "ro",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ResizeObserver",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 22,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "showLabels",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 47
+                },
+                {
+                    "name": "showXAxisLabel",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 52
+                },
+                {
+                    "name": "showYAxisLabel",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 51
+                },
+                {
+                    "name": "single",
+                    "defaultValue": "computed<ChartData>(() =>\r\n    this.toChartData(this.olympic() ?? { id: -1, country: '', participations: [] })\r\n  )",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 16
+                },
+                {
+                    "name": "timeline",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 55
+                },
+                {
+                    "name": "view",
+                    "defaultValue": "[0, 0]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[number, number]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 21
+                },
+                {
+                    "name": "xAxis",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 49
+                },
+                {
+                    "name": "xAxisLabel",
+                    "defaultValue": "'Year'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 53
+                },
+                {
+                    "name": "yAxis",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 50
+                },
+                {
+                    "name": "yAxisLabel",
+                    "defaultValue": "'Population'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 54
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngAfterViewInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 24,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ngOnDestroy",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 36,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "participationToChartData",
+                    "args": [
+                        {
+                            "name": "participation",
+                            "type": "Participation",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "ParticipationChartData",
+                    "typeParameters": [],
+                    "line": 65,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "participation",
+                            "type": "Participation",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "toChartData",
+                    "args": [
+                        {
+                            "name": "olympic",
+                            "type": "Olympic",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "ChartData",
+                    "typeParameters": [],
+                    "line": 58,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "olympic",
+                            "type": "Olympic",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "updateViewSize",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 40,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { AfterViewInit, Component, computed, ElementRef, inject, input, OnDestroy } from '@angular/core';\r\n\r\nimport type { Olympic } from 'src/app/core/models/Olympic';\r\nimport type { Participation } from 'src/app/core/models/Participation';\r\n\r\ntype ChartData = { name: string; series: ParticipationChartData[]};\r\ntype ParticipationChartData = { name: string; value: number};\r\n\r\n@Component({\r\n  selector: 'line-chart',\r\n  templateUrl: './line-chart.component.html',\r\n  styleUrls: ['./line-chart.component.scss'],\r\n})\r\nexport class LineChartComponent implements AfterViewInit, OnDestroy {\r\n  olympic = input<Olympic>();\r\n  single = computed<ChartData>(() =>\r\n    this.toChartData(this.olympic() ?? { id: -1, country: '', participations: [] })\r\n  );\r\n  private host = inject(ElementRef<HTMLElement>);\r\n\r\n  view: [number, number] = [0, 0];\r\n  private ro?: ResizeObserver;\r\n\r\n  ngAfterViewInit() {\r\n    Promise.resolve().then(() => {\r\n      this.updateViewSize();\r\n    });\r\n\r\n    this.ro = new ResizeObserver(() => {\r\n      this.updateViewSize();\r\n    });\r\n\r\n    this.ro.observe(this.host.nativeElement);\r\n  }\r\n\r\n  ngOnDestroy() {\r\n    this.ro?.disconnect();\r\n  }\r\n\r\n  private updateViewSize() {\r\n    const el = this.host.nativeElement;\r\n    this.view = [Math.max(0, el.clientWidth - 20), Math.max(0, el.clientHeight - 20)];\r\n  }\r\n\r\n  // options\r\n  legend: boolean = false;\r\n  showLabels: boolean = true;\r\n  animations: boolean = true;\r\n  xAxis: boolean = true;\r\n  yAxis: boolean = true;\r\n  showYAxisLabel: boolean = true;\r\n  showXAxisLabel: boolean = true;\r\n  xAxisLabel: string = 'Year';\r\n  yAxisLabel: string = 'Population';\r\n  timeline: boolean = true;\r\n  colorScheme = 'cool'; // check values there : https://swimlane.github.io/ngx-charts/#/ngx-charts/bar-vertical\r\n\r\n  toChartData(olympic: Olympic): ChartData {\r\n    return {\r\n      \"name\": olympic.country,\r\n      \"series\": olympic.participations.map(el => this.participationToChartData(el))\r\n    };\r\n  }\r\n\r\n  participationToChartData(participation: Participation): ParticipationChartData {\r\n    return {\r\n      \"value\": participation.medalsCount,\r\n      \"name\": participation.year.toString()\r\n    };\r\n  }\r\n}",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ":host {\r\n  flex: 1 1 auto; \r\n  height: 100%;\r\n}",
+                    "styleUrl": "./line-chart.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "implements": [
+                "AfterViewInit",
+                "OnDestroy"
+            ],
+            "templateData": "<ngx-charts-line-chart\r\n  [view]=\"view\"\r\n  [scheme]=\"colorScheme\"\r\n  [legend]=\"legend\"\r\n  [showXAxisLabel]=\"showXAxisLabel\"\r\n  [showYAxisLabel]=\"showYAxisLabel\"\r\n  [xAxis]=\"xAxis\"\r\n  [yAxis]=\"yAxis\"\r\n  [xAxisLabel]=\"xAxisLabel\"\r\n  [yAxisLabel]=\"yAxisLabel\"\r\n  [timeline]=\"timeline\"\r\n  [results]=\"[single()]\"\r\n  >\r\n</ngx-charts-line-chart>\r\n"
+        },
+        {
+            "name": "NotFoundComponent",
+            "id": "component-NotFoundComponent-3ddab34b142be9dab02fe7144a0a69ee01a41ccc95769a49c7b7d7b78d2f820ceb3b48bffeba53bb02accbd14978ac5bc7e826db3e5f48ca6bfaab6d4f60fe59",
+            "file": "src/app/pages/not-found/not-found.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-not-found",
+            "styleUrls": [
+                "./not-found.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./not-found.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-not-found',\r\n  templateUrl: './not-found.component.html',\r\n  styleUrls: ['./not-found.component.scss']\r\n})\r\nexport class NotFoundComponent implements OnInit {\r\n\r\n  constructor() { }\r\n\r\n  ngOnInit(): void {\r\n  }\r\n\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".center {\r\n  width: 100vw;\r\n  height: 100vh;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  flex-direction: column;\r\n}\r\n",
+                    "styleUrl": "./not-found.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 8
+            },
+            "extends": [],
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div class=\"center\">\r\n  <h2>No corresponding page found</h2>\r\n  <a routerLink=\"\">Go back</a>\r\n</div>\r\n"
+        },
+        {
+            "name": "PieChartComponent",
+            "id": "component-PieChartComponent-90ee8cb81d6728962d28e8d95f6a33c6e3a4a04b7af524565f708ae91bbec4c21919e47320949980c01ae589e5a3e28729b044d6378a6664f357f1ec1d5db0e6",
+            "file": "src/app/components/pie-chart/pie-chart.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "pie-chart",
+            "styleUrls": [
+                "./pie-chart.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./pie-chart.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [
+                {
+                    "name": "selectedOlympic",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15,
+                    "required": false
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "colorScheme",
+                    "defaultValue": "'cool'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 55
+                },
+                {
+                    "name": "gradient",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 49
+                },
+                {
+                    "name": "host",
+                    "defaultValue": "inject(ElementRef<HTMLElement>)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 21,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "isDoughnut",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 52
+                },
+                {
+                    "name": "legendPosition",
+                    "defaultValue": "LegendPosition.Below",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "LegendPosition",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 53
+                },
+                {
+                    "name": "maxLabelLength",
+                    "defaultValue": "12",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 54
+                },
+                {
+                    "name": "olympics",
+                    "defaultValue": "input<Olympic[]>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 16
+                },
+                {
+                    "name": "ro",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ResizeObserver",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 24,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "selectedOlympic",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15,
+                    "required": false
+                },
+                {
+                    "name": "showLabels",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 51
+                },
+                {
+                    "name": "showLegend",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 50
+                },
+                {
+                    "name": "single",
+                    "defaultValue": "computed<ChartData[]>(() =>\r\n    (this.olympics() ?? []).map(o => this.toChartData(o))\r\n  )",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 17
+                },
+                {
+                    "name": "view",
+                    "defaultValue": "[0, 0]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[number, number]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 23
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngAfterViewInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 26,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ngOnDestroy",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 39,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "onSelect",
+                    "args": [
+                        {
+                            "name": "data",
+                            "type": "ChartData",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 72,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "data",
+                            "type": "ChartData",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "toChartData",
+                    "args": [
+                        {
+                            "name": "olympic",
+                            "type": "Olympic",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "ChartData",
+                    "typeParameters": [],
+                    "line": 57,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "olympic",
+                            "type": "Olympic",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "tooltipText",
+                    "args": [
+                        {
+                            "type": "PieData",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "string",
+                    "typeParameters": [],
+                    "line": 68,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "type": "PieData",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "updateViewSize",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 43,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { AfterViewInit, Component, computed, ElementRef, inject, input, OnDestroy, output } from '@angular/core';\r\nimport { LegendPosition, PieData } from '@swimlane/ngx-charts';\r\n\r\nimport type { Olympic } from 'src/app/core/models/Olympic';\r\nimport type { Participation } from 'src/app/core/models/Participation';\r\n\r\ntype ChartData = { name: string; value: number, extra: number };\r\n\r\n@Component({\r\n  selector: 'pie-chart',\r\n  templateUrl: './pie-chart.component.html',\r\n  styleUrls: ['./pie-chart.component.scss'],\r\n})\r\nexport class PieChartComponent implements AfterViewInit, OnDestroy {\r\n  selectedOlympic = output<Olympic>();\r\n  olympics = input<Olympic[]>();\r\n  single = computed<ChartData[]>(() =>\r\n    (this.olympics() ?? []).map(o => this.toChartData(o))\r\n  );\r\n\r\n  private host = inject(ElementRef<HTMLElement>);\r\n\r\n  view: [number, number] = [0, 0];\r\n  private ro?: ResizeObserver;\r\n\r\n  ngAfterViewInit() {\r\n    // a promise to init and delay of one tick\r\n    Promise.resolve().then(() => {\r\n      this.updateViewSize();\r\n    });\r\n\r\n    this.ro = new ResizeObserver(() => {\r\n      this.updateViewSize();\r\n    });\r\n\r\n    this.ro.observe(this.host.nativeElement);\r\n  }\r\n\r\n  ngOnDestroy() {\r\n    this.ro?.disconnect();\r\n  }\r\n\r\n  private updateViewSize() {\r\n    const el = this.host.nativeElement;\r\n    this.view = [Math.max(0, el.clientWidth - 20), Math.max(0, el.clientHeight - 20)];\r\n  }\r\n  \r\n  // options\r\n  gradient: boolean = false;\r\n  showLegend: boolean = false; // renders really bad because it is added outised\r\n  showLabels: boolean = true;\r\n  isDoughnut: boolean = false;\r\n  legendPosition: LegendPosition = LegendPosition.Below;\r\n  maxLabelLength: number = 12;\r\n  colorScheme = 'cool'; // check values there : https://swimlane.github.io/ngx-charts/#/ngx-charts/bar-vertical\r\n\r\n  toChartData(olympic: Olympic): ChartData {\r\n    return {\r\n      \"name\": olympic.country,\r\n      \"value\": olympic.participations.reduce(\r\n        (sum: number, participation: Participation) => sum + participation.medalsCount, 0\r\n      ),\r\n      \"extra\": olympic.id\r\n    };\r\n  }\r\n\r\n  // TODO check if possible to extract in dedicated file\r\n  tooltipText({data}: PieData): string {\r\n    return `${data.name}<br />🏅${data.value}`;\r\n  }\r\n\r\n  onSelect(data: ChartData): void {\r\n    let country = this.olympics()?.find(e => e.country === data.name);\r\n    if (typeof country !== \"undefined\" && country !== null)\r\n      this.selectedOlympic.emit(country);\r\n  }\r\n}",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ":host {\r\n  flex: 1 1 auto; \r\n  height: 100%;\r\n}",
+                    "styleUrl": "./pie-chart.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "implements": [
+                "AfterViewInit",
+                "OnDestroy"
+            ],
+            "templateData": "<ngx-charts-pie-chart\r\n  [view]=\"view\"\r\n  [scheme]=\"colorScheme\"\r\n  [results]=\"single()\"\r\n  [gradient]=\"gradient\"\r\n  [legend]=\"showLegend\"\r\n  [legendPosition]=\"legendPosition\"\r\n  [labels]=\"showLabels\"\r\n  [doughnut]=\"isDoughnut\"\r\n  (select)=\"onSelect($event)\"\r\n  [tooltipText]=\"tooltipText\"\r\n  [maxLabelLength]=\"maxLabelLength\"\r\n  >\r\n</ngx-charts-pie-chart>\r\n"
+        }
+    ],
+    "modules": [
+        {
+            "name": "AppModule",
+            "id": "module-AppModule-8b81911c8389bac9b92c054fc0d21bef3b88771535fb0e789169a9b72739d8c0eb92908af8aedbd67fe25bf4b40ab20306ada100f4677bb88aa3c9f3195fa2d2",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/app.module.ts",
+            "methods": [],
+            "sourceCode": "import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';\r\nimport { NgModule } from '@angular/core';\r\nimport { BrowserModule } from '@angular/platform-browser';\r\nimport { FormsModule } from '@angular/forms';\r\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\r\nimport { AppRoutingModule } from './app-routing.module';\r\nimport { AppComponent } from './app.component';\r\nimport { HomeComponent } from './pages/home/home.component';\r\nimport { DetailsComponent } from './pages/details/details.component';\r\nimport { NgxChartsModule } from '@swimlane/ngx-charts';\r\nimport { PieChartComponent } from './components/pie-chart/pie-chart.component';\r\nimport { LineChartComponent } from './components/line-chart/line-chart.component';\r\nimport { NotFoundComponent } from './pages/not-found/not-found.component';\r\nimport { DelayInterceptor } from 'src/app/core/services/olympic.service';\r\n\r\n@NgModule({\r\n  declarations: [AppComponent, HomeComponent, NotFoundComponent, DetailsComponent, PieChartComponent, LineChartComponent],\r\n  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgxChartsModule, BrowserAnimationsModule],\r\n  providers:  [\r\n    {\r\n      provide: HTTP_INTERCEPTORS,\r\n      useClass: DelayInterceptor,\r\n      multi: true\r\n    }\r\n  ],\r\n  bootstrap: [AppComponent],\r\n})\r\nexport class AppModule {}\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": [
+                        {
+                            "name": "DelayInterceptor"
+                        }
+                    ]
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "AppComponent"
+                        },
+                        {
+                            "name": "DetailsComponent"
+                        },
+                        {
+                            "name": "HomeComponent"
+                        },
+                        {
+                            "name": "LineChartComponent"
+                        },
+                        {
+                            "name": "NotFoundComponent"
+                        },
+                        {
+                            "name": "PieChartComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "AppRoutingModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": [
+                        {
+                            "name": "AppComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "AppRoutingModule",
+            "id": "module-AppRoutingModule-471b5addf9b1bf4e33db9d70fb8eeeeefc9a0e070c2c155ad9156c9e7c5dc42ade1090fbe473190d7adbb0ee984889781371ce45cbd8f8055798736f7cb1a5a6",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/app-routing.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { RouterModule, Routes } from '@angular/router';\r\nimport { HomeComponent } from './pages/home/home.component';\r\nimport { NotFoundComponent } from './pages/not-found/not-found.component';\r\nimport { DetailsComponent } from './pages/details/details.component';\r\n\r\nconst routes: Routes = [\r\n  {\r\n    path: '',\r\n    component: HomeComponent,\r\n  },\r\n  {\r\n    path: 'details/:name',\r\n    component: DetailsComponent,\r\n  },\r\n  {\r\n    path: '**', // wildcard\r\n    component: NotFoundComponent,\r\n  },\r\n];\r\n\r\n@NgModule({\r\n  imports: [RouterModule.forRoot(routes)],\r\n  exports: [RouterModule],\r\n})\r\nexport class AppRoutingModule {}\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        }
+    ],
+    "miscellaneous": {
+        "variables": [
+            {
+                "name": "context",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/test.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.prod.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\r\n  production: true,\r\n  olympicUrl: './assets/mock/olympic.json',\r\n  dataDelay: 0,\r\n  alwaysFailFetch: false,\r\n}"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\r\n  production: false,\r\n  olympicUrl: './assets/mock/olympic-edge-case.json',\r\n  dataDelay: 3000,\r\n  alwaysFailFetch: false,\r\n}"
+            },
+            {
+                "name": "require",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/test.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "literal type"
+            }
+        ],
+        "functions": [],
+        "typealiases": [
+            {
+                "name": "ChartData",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "literal type",
+                "file": "src/app/components/line-chart/line-chart.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 187
+            },
+            {
+                "name": "ChartData",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "literal type",
+                "file": "src/app/components/pie-chart/pie-chart.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 187
+            },
+            {
+                "name": "ParticipationChartData",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "literal type",
+                "file": "src/app/components/line-chart/line-chart.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 187
+            }
+        ],
+        "enumerations": [],
+        "groupedVariables": {
+            "src/test.ts": [
+                {
+                    "name": "context",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/test.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+                },
+                {
+                    "name": "require",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/test.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "literal type"
+                }
+            ],
+            "src/environments/environment.prod.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.prod.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\r\n  production: true,\r\n  olympicUrl: './assets/mock/olympic.json',\r\n  dataDelay: 0,\r\n  alwaysFailFetch: false,\r\n}"
+                }
+            ],
+            "src/environments/environment.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\r\n  production: false,\r\n  olympicUrl: './assets/mock/olympic-edge-case.json',\r\n  dataDelay: 3000,\r\n  alwaysFailFetch: false,\r\n}"
+                }
+            ]
+        },
+        "groupedFunctions": {},
+        "groupedEnumerations": {},
+        "groupedTypeAliases": {
+            "src/app/components/line-chart/line-chart.component.ts": [
+                {
+                    "name": "ChartData",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "literal type",
+                    "file": "src/app/components/line-chart/line-chart.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 187
+                },
+                {
+                    "name": "ParticipationChartData",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "literal type",
+                    "file": "src/app/components/line-chart/line-chart.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 187
+                }
+            ],
+            "src/app/components/pie-chart/pie-chart.component.ts": [
+                {
+                    "name": "ChartData",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "literal type",
+                    "file": "src/app/components/pie-chart/pie-chart.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 187
+                }
+            ]
+        }
+    },
+    "routes": {
+        "name": "<root>",
+        "kind": "module",
+        "className": "AppModule",
+        "children": [
+            {
+                "name": "routes",
+                "filename": "src/app/app-routing.module.ts",
+                "module": "AppRoutingModule",
+                "children": [
+                    {
+                        "path": "",
+                        "component": "HomeComponent"
+                    },
+                    {
+                        "path": "details/:name",
+                        "component": "DetailsComponent"
+                    },
+                    {
+                        "path": "**",
+                        "component": "NotFoundComponent"
+                    }
+                ],
+                "kind": "module"
+            }
+        ]
+    },
+    "coverage": {
+        "count": 0,
+        "status": "low",
+        "files": [
+            {
+                "filePath": "src/app/app.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AppComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/line-chart/line-chart.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "LineChartComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/23",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/line-chart/line-chart.component.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "ChartData",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/line-chart/line-chart.component.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "ParticipationChartData",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/pie-chart/pie-chart.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "PieChartComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/21",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/pie-chart/pie-chart.component.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "ChartData",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/core/models/Olympic.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "Olympic",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/core/models/Participation.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "Participation",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/core/services/olympic.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "OlympicService",
+                "coveragePercent": 0,
+                "coverageCount": "0/10",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/core/services/olympic.service.ts",
+                "type": "interceptor",
+                "linktype": "interceptor",
+                "name": "DelayInterceptor",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/pages/details/details.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "DetailsComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/pages/home/home.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "HomeComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/11",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/pages/not-found/not-found.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "NotFoundComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/environments/environment.prod.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "environment",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/environments/environment.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "environment",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/test.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "context",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/test.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "require",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            }
+        ]
+    }
+}
