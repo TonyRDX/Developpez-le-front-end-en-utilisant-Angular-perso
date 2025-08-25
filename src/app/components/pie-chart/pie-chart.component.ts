@@ -1,5 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, computed, ElementRef, inject, input, OnDestroy, output } from '@angular/core';
-import { LegendPosition, PieData } from '@swimlane/ngx-charts';
+import { LegendPosition, NgxChartsModule, PieData } from '@swimlane/ngx-charts';
 
 import type { Olympic } from 'src/app/core/models/Olympic';
 import type { Participation } from 'src/app/core/models/Participation';
@@ -8,6 +9,8 @@ type ChartData = { name: string; value: number, extra: number };
 
 @Component({
   selector: 'pie-chart',
+  standalone: true,
+  imports: [CommonModule, NgxChartsModule], 
   templateUrl: './pie-chart.component.html',
   styleUrls: ['./pie-chart.component.scss'],
 })

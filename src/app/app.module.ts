@@ -14,8 +14,20 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { DelayInterceptor } from 'src/app/core/interceptors/delay.interceptor';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NotFoundComponent, DetailsComponent, PieChartComponent, LineChartComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgxChartsModule, BrowserAnimationsModule],
+  declarations: [AppComponent],
+  imports: [
+            BrowserModule, 
+            AppRoutingModule, 
+            HttpClientModule, 
+            FormsModule, 
+            NgxChartsModule, 
+            BrowserAnimationsModule, 
+            PieChartComponent, 
+            LineChartComponent,
+            HomeComponent,
+            DetailsComponent,
+            NotFoundComponent
+          ],
   providers:  [
     {
       provide: HTTP_INTERCEPTORS,

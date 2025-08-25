@@ -3,12 +3,16 @@ import { map, switchMap } from 'rxjs/operators';
 
 import { OlympicService } from 'src/app/core/services/olympic.service';
 import type { Olympic } from 'src/app/core/models/Olympic';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { Participation } from 'src/app/core/models/Participation';
+import { CommonModule } from '@angular/common';
+import { LineChartComponent } from 'src/app/components/line-chart/line-chart.component';
 
 @Component({
   selector: 'app-details',
+  standalone: true,
+  imports: [CommonModule, LineChartComponent, RouterModule],
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss'],
 })

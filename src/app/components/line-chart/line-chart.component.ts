@@ -1,4 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, computed, ElementRef, inject, input, OnDestroy } from '@angular/core';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import type { Olympic } from 'src/app/core/models/Olympic';
 import type { Participation } from 'src/app/core/models/Participation';
@@ -8,6 +10,8 @@ type ParticipationChartData = { name: string; value: number};
 
 @Component({
   selector: 'line-chart',
+  standalone: true,
+  imports: [CommonModule, NgxChartsModule],
   templateUrl: './line-chart.component.html',
   styleUrls: ['./line-chart.component.scss'],
 })

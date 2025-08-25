@@ -6,9 +6,13 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { OlympicService } from 'src/app/core/services/olympic.service';
 import type { Olympic } from 'src/app/core/models/Olympic';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { PieChartComponent } from 'src/app/components/pie-chart/pie-chart.component';
 
 @Component({
   selector: 'app-home',
+  standalone: true,
+  imports: [CommonModule, PieChartComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
