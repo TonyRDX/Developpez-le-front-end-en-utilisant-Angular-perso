@@ -45,30 +45,3 @@ export class OlympicService {
     return this.olympics$.asObservable();
   }
 }
-
-@Injectable()
-export class DelayInterceptor implements HttpInterceptor {
-  static shouldFail = computed(() => {
-                                        return ((OlympicService.tryNumber()) !== environment.failedFetchBeforeSuccess) 
-                                                && !environment.production
-                                      });
-
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    return next.handle(req).pipe(
-      delay(environment.dataDelay), 
-      switchMap((event)=> {
-        if (event instanceof HttpResponse) {
-          return !DelayInterceptor.shouldFail()
-            ? of(event)
-            : throwError(() => new HttpErrorResponse({
-              status: 503,
-              statusText: 'Service Unavailable (simulé)',
-              url: req.url
-            }));
-        }
-        return of(event);
-      }) 
-    );
-  }
-}
-

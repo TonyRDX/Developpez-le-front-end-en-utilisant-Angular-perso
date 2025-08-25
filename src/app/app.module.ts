@@ -11,7 +11,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { PieChartComponent } from './components/pie-chart/pie-chart.component';
 import { LineChartComponent } from './components/line-chart/line-chart.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { DelayInterceptor } from 'src/app/core/services/olympic.service';
+import { DelayInterceptor } from 'src/app/core/interceptors/delay.interceptor';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, NotFoundComponent, DetailsComponent, PieChartComponent, LineChartComponent],
