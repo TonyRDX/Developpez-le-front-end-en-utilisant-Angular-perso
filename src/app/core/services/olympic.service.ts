@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
 import { computed, inject, Injectable, signal } from '@angular/core';
 import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
-import { catchError, delay, finalize, map, retry, switchMap, tap } from 'rxjs/operators';
+import { catchError, delay, finalize, retry, switchMap, tap } from 'rxjs/operators';
 import { Olympic } from '../models/Olympic';
 import { environment } from 'src/environments/environment';
 
@@ -10,7 +10,6 @@ import { environment } from 'src/environments/environment';
 })
 export class OlympicService {
   protected olympicUrl = environment.olympicUrl;
-  // TODO check deeply if should add undefined to avoid error trigger when not initialized. Seems unlikely
   protected olympics$ = new BehaviorSubject<Olympic[]>([]); 
   public readonly isLoading = signal(true);
   public readonly hasFailed = signal(false);
@@ -19,7 +18,7 @@ export class OlympicService {
   protected http = inject(HttpClient);
 
   loadInitialData() {
-    return this.http.get<Olympic[]>(this.olympicUrl).pipe(
+    this.http.get<Olympic[]>(this.olympicUrl).pipe(
       tap({
         error: () => {this.isRetrying.set(true); 
                     OlympicService.tryNumber.set(OlympicService.tryNumber()+1);
@@ -35,11 +34,11 @@ export class OlympicService {
         this.hasFailed.set(true);
         return of([]);
       }),
-      finalize(() => {
+      finalize(() => { // proof it is auto-unsubscribed, do not need ngOnDestroy
         this.isLoading.set(false);
         this.isRetrying.set(false);
       })
-    );
+    ).subscribe();
   }
 
   getOlympics(): Observable<Olympic[]> {
@@ -49,9 +48,11 @@ export class OlympicService {
 
 @Injectable()
 export class DelayInterceptor implements HttpInterceptor {
-  static tryNumber = 0;
-  static alwaysFail = environment.alwaysFailFetch && !environment.production;
-  static shouldFail = computed(() => {return ((OlympicService.tryNumber() % 3) == 0) && !environment.alwaysFailFetch});
+  static shouldFail = computed(() => {
+                                        return ((OlympicService.tryNumber()) !== environment.failedFetchBeforeSuccess) 
+                                                && !environment.production
+                                      });
+
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(req).pipe(
       delay(environment.dataDelay), 

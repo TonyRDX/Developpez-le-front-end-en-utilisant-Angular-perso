@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   olympicUrl: './assets/mock/olympic-edge-case.json',
-  dataDelay: 3000,
-  alwaysFailFetch: false,
+  dataDelay: 2000,
+  failedFetchBeforeSuccess: 0,
 };
 
 /*

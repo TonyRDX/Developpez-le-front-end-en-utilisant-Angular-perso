@@ -2,5 +2,5 @@ export const environment = {
   production: true,
   olympicUrl: './assets/mock/olympic.json',
   dataDelay: 0,
-  alwaysFailFetch: false,
+  failedFetchBeforeSuccess: 0,
 };

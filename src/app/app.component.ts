@@ -1,5 +1,4 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { take } from 'rxjs';
 import { OlympicService } from './core/services/olympic.service';
 
 @Component({
@@ -10,7 +9,8 @@ import { OlympicService } from './core/services/olympic.service';
 export class AppComponent implements OnInit {
   private olympicService: OlympicService = inject(OlympicService);
 
+  // AppComponent seems useless as OlympicService could initialize itself
   ngOnInit(): void {
-    this.olympicService.loadInitialData().pipe(take(1)).subscribe();
+    this.olympicService.loadInitialData();
   }
 }
