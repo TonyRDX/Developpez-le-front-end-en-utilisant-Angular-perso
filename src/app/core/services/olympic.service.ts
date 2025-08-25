@@ -1,7 +1,7 @@
-import { HttpClient, HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
-import { computed, inject, Injectable, signal } from '@angular/core';
-import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
-import { catchError, delay, finalize, retry, switchMap, tap } from 'rxjs/operators';
+import { HttpClient} from '@angular/common/http';
+import { inject, Injectable, signal } from '@angular/core';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { catchError, delay, finalize, retry, tap } from 'rxjs/operators';
 import { Olympic } from '../models/Olympic';
 import { environment } from 'src/environments/environment';
 
